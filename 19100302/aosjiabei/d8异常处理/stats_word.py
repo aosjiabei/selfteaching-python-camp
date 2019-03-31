@@ -1,6 +1,7 @@
 import re#导入正则表达式模块
 def stats_text_en(text):
-   
+    if not isinstance(text,str):#判断参数类型
+        raise ValueError("非字符串参数")#抛出异常类型
     found = {}#建立空的字典
     a= text.lower()
     a=re.sub("[^\\u0061-\u007a]", " ", a)#小写字母unicode范围，筛选英文
@@ -17,6 +18,8 @@ def stats_text_en(text):
 #统计中文词频
 
 def stats_text_cn(text):
+    if not isinstance(text,str):#判断参数类型
+        raise ValueError("非字符串参数")#抛出异常类型
     found={}
     #提取中文字符串
     text= re.sub("[^\u4e00-\u9fa5]", "", text)#中文汉字unicode范围
